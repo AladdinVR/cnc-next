@@ -1,3 +1,4 @@
+"use client";
 import React, { FunctionComponent } from "react";
 import {
   FormControl,
@@ -7,10 +8,12 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { SelectButtonProps } from "../props";
+import { Link, usePathname } from "@/navigation";
 
 const SelectButton: FunctionComponent<SelectButtonProps> = (
   props: SelectButtonProps
 ) => {
+  const pathname = usePathname();
   return (
     <div {...props.div} className="SelectButton" style={{ overflow: "auto" }}>
       <CssBaseline />

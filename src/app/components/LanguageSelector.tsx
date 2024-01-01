@@ -26,7 +26,7 @@ const LanguageSelector = () => {
           }),
         }}
         onChange={(e) => {
-          router.replace(pathname, { locale: e.target.value });
+          router.push(pathname, { locale: e.target.value });
         }}
         defaultValue={locale}
       />

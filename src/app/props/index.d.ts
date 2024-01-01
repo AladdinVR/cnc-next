@@ -14,8 +14,6 @@ export type FooterProps = {
 };
 
 export type HeaderProps = {
-  page: string;
-  setPage: React.Dispatch<React.SetStateAction<string>>;
   theme: Theme;
   themeSelected: "light" | "dark";
   setThemeSelected: React.Dispatch<React.SetStateAction<"light" | "dark">>;
