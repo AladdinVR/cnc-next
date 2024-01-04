@@ -1,5 +1,13 @@
 {
   "Index": {
     "title": "Hello world!"
+  },
+  "Header": {
+    "home": "Home",
+    "join": "Join us",
+    "history": "Club's history",
+    "song": "Our songs",
+    "training": "Trainings",
+    "records": "Club's records"
   }
 }

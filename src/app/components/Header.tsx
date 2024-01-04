@@ -19,11 +19,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Brightness3Icon from "@mui/icons-material/Brightness3";
 import { useEffect, useState } from "react";
 import { HeaderProps } from "../props";
+import { usePathname, useRouter } from "../../navigation";
+import { useLocale } from "next-intl";
 
 const Header = (props: HeaderProps) => {
-  function t(test: string) {
-    return test;
-  }
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,41 +31,8 @@ const Header = (props: HeaderProps) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  useEffect(() => {
-    console.log(props.themeSelected);
-  }, [props.themeSelected]);
-  let sections = [
-    {
-      title: t("home"),
-      dest: "home",
-      weight: "Bold",
-    },
-    {
-      title: t("join"),
-      dest: "join",
-      weight: "14px",
-    },
-    {
-      title: t("history"),
-      dest: "history",
-      weight: "14px",
-    },
-    {
-      title: t("song"),
-      dest: "song",
-      weight: "14px",
-    },
-    {
-      title: t("training"),
-      dest: "training",
-      weight: "14px",
-    },
-    {
-      title: t("ranking"),
-      dest: "ranking",
-      weight: "14px",
-    },
-  ];
+  const router = useRouter();
+  const pathname = usePathname();
   const innerThemeOptions: ThemeOptions = {
     components: {
       MuiPaper: {
@@ -88,20 +54,20 @@ const Header = (props: HeaderProps) => {
   };
   const smallSizeLimit = 1000;
   const nav = () => {
-    return sections.map((section, index) => (
+    return props.sections.map((section, index) => (
       <MenuItem key={section.title}>
         <Link
           color="inherit"
           key={section.title}
           variant="body2"
-          fontWeight={section.weight}
+          fontWeight={pathname.includes(section.dest) ? "Bold" : "14px"}
           onClick={() => {
-            console.log(section);
+            router.push(`/${section.dest}`);
           }}
           sx={{ p: 1, flexShrink: 0 }}
           style={{ cursor: "pointer " }}
         >
-          {t(section.title as keyof typeof t)}
+          {section.title}
         </Link>
       </MenuItem>
     ));

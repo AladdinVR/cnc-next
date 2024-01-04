@@ -7,9 +7,6 @@ import { usePathname, useRouter } from "../../navigation";
 import { useLocale } from "next-intl";
 
 const LanguageSelector = () => {
-  function t(test: string) {
-    return test;
-  }
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -19,14 +16,15 @@ const LanguageSelector = () => {
       <SelectButton
         selectItems={{
           inputLabel: {
-            text: t("lang"),
+            text: locale == "en" ? "language" : "langue",
           },
-          menuItems: locales.map((lang, index) => {
+          menuItems: locales?.map((lang, index) => {
             return { id: index, text: lang };
           }),
         }}
         onChange={(e) => {
           router.push(pathname, { locale: e.target.value });
+          router.refresh();
         }}
         defaultValue={locale}
       />

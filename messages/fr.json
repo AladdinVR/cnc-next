@@ -1,5 +1,13 @@
 {
   "Index": {
     "title": "Bonjour !"
+  },
+  "Header": {
+    "home": "Accueil",
+    "join": "Nous rejoindre",
+    "history": "Histoire du club",
+    "song": "Nos chansons",
+    "training": "Entraînements",
+    "records": "Records du Club"
   }
 }

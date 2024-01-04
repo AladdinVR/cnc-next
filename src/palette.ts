@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@mui/material";
+import { Paper, ThemeOptions } from "@mui/material";
 
 export function getTheme(themeSelected: string) {
   let palette: ThemeOptions["palette"];
@@ -89,6 +89,11 @@ export function getTheme(themeSelected: string) {
       MuiButtonBase: {
         defaultProps: {
           color: "secondary",
+        },
+      },
+      MuiTable: {
+        defaultProps: {
+          component: Paper,
         },
       },
       MuiTableCell: {

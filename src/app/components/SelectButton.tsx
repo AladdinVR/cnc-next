@@ -26,9 +26,9 @@ const SelectButton: FunctionComponent<SelectButtonProps> = (
           {props.selectItems.inputLabel.text}
         </InputLabel>
         <Select
-          defaultValue={props.defaultValue}
           onChange={(e) => (props.onChange ? props.onChange(e) : null)}
           onClick={(e) => (props.onClick ? props.onClick(e) : null)}
+          value={props.defaultValue}
         >
           {props.selectItems.menuItems.map((menuItem) => (
             <MenuItem

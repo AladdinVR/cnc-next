@@ -17,6 +17,7 @@ export type HeaderProps = {
   theme: Theme;
   themeSelected: "light" | "dark";
   setThemeSelected: React.Dispatch<React.SetStateAction<"light" | "dark">>;
+  sections: { title: string; dest: string }[];
 };
 
 export type HomeProps = {

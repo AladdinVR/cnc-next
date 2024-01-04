@@ -3,6 +3,10 @@ import { Inter } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { locales } from "@/i18n";
 import GlobalHeaderProvider from "./components/GlobalHeaderProvider";
+import "./layout.css";
+import Footer from "./components/Footer";
+import { useTranslations } from "next-intl";
+import GlobalCanvaServer from "./components/GlobalCanvaServer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,14 +21,15 @@ export function generateStaticParams() {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html lang={params.locale}>
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <GlobalHeaderProvider>{children}</GlobalHeaderProvider>
+          <GlobalCanvaServer>{children}</GlobalCanvaServer>
         </AppRouterCacheProvider>
       </body>
     </html>
