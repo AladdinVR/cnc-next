@@ -63,6 +63,7 @@ export function getTheme(themeSelected: string) {
       allVariants: {
         textAlign: "left",
         fontFamily: "Lato",
+        whiteSpace: "break-spaces !important",
       },
     },
     shape: {
@@ -102,9 +103,10 @@ export function getTheme(themeSelected: string) {
             borderColor: "#fadd68",
             verticalAlign: "baseline",
             border: "1px solid",
-            width: "20%",
-            minWidth: "200px",
             color: "whitesmoke",
+            maxWidth: "20%",
+            minWidth: "200px",
+            whiteSpace: "break-spaces",
           },
         },
       },

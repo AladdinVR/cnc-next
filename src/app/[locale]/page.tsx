@@ -5,6 +5,5 @@ import { redirect } from "@/navigation";
 
 export default function Index() {
   const t = useTranslations("Index");
-  const locale = useLocale();
   redirect("/home");
 }

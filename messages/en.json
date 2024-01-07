@@ -9,5 +9,32 @@
     "song": "Our songs",
     "training": "Trainings",
     "records": "Club's records"
+  },
+  "Records": {
+    "catIntro": "Records are based on the old category system",
+    "catAvenirs": "{{year}} and younger are avenirs",
+    "catPoussins": "{{startYear}} and {{endYear}} are poussins",
+    "catBenjamins": "{{startYear}} and {{endYear}} are benjamins",
+    "catMinimes": "{{startYear}} and {{endYear}} are minimes",
+    "catCadets": "{{startYear}} and {{endYear}} are minimes",
+    "catJuniors": "{{year}} and older are juniors/seniors",
+    "freestyle": "Freestyle",
+    "backstroke": "Backstroke",
+    "breaststroke": "Breaststroke",
+    "butterfly": "Butterfly",
+    "medley": "Medley",
+    "swim": "Swim",
+    "length": "Length",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "time": "Time",
+    "place": "Place",
+    "date": "Date",
+    "individual": "Individual",
+    "relay": "Relay",
+    "male": "Man",
+    "female": "Woman",
+    "mixt": "Mixt",
+    "allCategory": "All Categories"
   }
 }

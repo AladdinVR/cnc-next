@@ -9,5 +9,32 @@
     "song": "Nos chansons",
     "training": "Entraînements",
     "records": "Records du Club"
+  },
+  "Records": {
+    "catIntro": "Les records sont basés sur l'ancien système de catégorie",
+    "catAvenirs": "Les {{year}} et plus sont avenirs",
+    "catPoussins": "Les {{startYear}} et {{endYear}} sont poussins",
+    "catBenjamins": "Les {{startYear}} et {{endYear}} sont benjamins",
+    "catMinimes": "Les {{startYear}} et {{endYear}} sont minimes",
+    "catCadets": "Les {{startYear}} et {{endYear}} sont cadets",
+    "catJuniors": "Les {{year}} et moins sont juniors/seniors",
+    "freestyle": "Nage libre",
+    "backstroke": "Dos",
+    "breaststroke": "Brasse",
+    "butterfly": "Papillon",
+    "medley": "4 nages",
+    "swim": "Nage",
+    "length": "Distance",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "time": "Temps",
+    "place": "Lieu",
+    "date": "Date",
+    "individual": "Individuel",
+    "relay": "Relais",
+    "male": "Homme",
+    "female": "Femme",
+    "mixt": "Mixte",
+    "allCategory": "Toutes catégories"
   }
 }
