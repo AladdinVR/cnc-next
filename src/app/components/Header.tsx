@@ -14,6 +14,7 @@ import {
   MenuItem,
   Switch,
 } from "@mui/material";
+import Image from "next/image";
 import BrightnessHighIcon from "@mui/icons-material/BrightnessHigh";
 import MenuIcon from "@mui/icons-material/Menu";
 import Brightness3Icon from "@mui/icons-material/Brightness3";
@@ -25,12 +26,16 @@ import { useLocale } from "next-intl";
 const Header = (props: HeaderProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const [isWindowAvailable, setIsWindowAvailable] = useState(false);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  useEffect(() => {
+    setIsWindowAvailable(true);
+  }, []);
   const router = useRouter();
   const pathname = usePathname();
   const innerThemeOptions: ThemeOptions = {
@@ -73,78 +78,87 @@ const Header = (props: HeaderProps) => {
     ));
   };
   return (
-    <>
-      <CssBaseline />
-      <ThemeProvider
-        theme={(theme: Theme) => createTheme(theme, innerThemeOptions)}
-      >
-        <Paper elevation={5} square>
-          <Toolbar
-            component="nav"
-            variant="dense"
-            sx={
-              window.innerWidth < smallSizeLimit
-                ? { justifyContent: "space-between", overflowX: "auto" }
-                : { justifyContent: "space-around", overflowX: "auto" }
-            }
-          >
-            <img
-              src="/favicon.ico"
-              alt="Club's logo"
-              className="favicon"
-              style={
-                window.innerWidth > window.innerHeight
-                  ? { width: "5vw", height: "auto" }
-                  : { width: "auto", height: "10vh" }
+    isWindowAvailable && (
+      <>
+        <CssBaseline />
+        <ThemeProvider
+          theme={(theme: Theme) => createTheme(theme, innerThemeOptions)}
+        >
+          <Paper elevation={5} square>
+            <Toolbar
+              component="nav"
+              variant="dense"
+              sx={
+                window.innerWidth < smallSizeLimit
+                  ? { justifyContent: "space-between", overflowX: "auto" }
+                  : { justifyContent: "space-around", overflowX: "auto" }
               }
-            />
-            {window.innerWidth > smallSizeLimit && nav()}
-            <Button
-              id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-              sx={{ alignItems: "flex-end" }}
             >
-              <MenuIcon sx={{ marginRight: "10px" }} />
-              Menu
-            </Button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-              {window.innerWidth < smallSizeLimit && nav()}
-              <MenuItem>
-                <LanguageSelector />
-              </MenuItem>
-              <MenuItem sx={{ flexDirection: "row-reverse" }}>
-                <Switch
-                  onClick={() => {
-                    props.setThemeSelected((theme) =>
-                      theme === "light" ? "dark" : "light"
-                    );
-                  }}
-                  checkedIcon={<Brightness3Icon sx={{ marginTop: "-5%" }} />}
-                  icon={
-                    <BrightnessHighIcon
-                      sx={{ color: "#ffc107", marginTop: "-5%" }}
-                    />
-                  }
-                  checked={props.themeSelected === "dark"}
-                  size="medium"
+              <div
+                style={{
+                  position: "relative",
+                  width:
+                    window.innerWidth > window.innerHeight ? "5vw" : "10vh",
+                  height:
+                    window.innerWidth < window.innerHeight ? "10vh" : "5vw",
+                }}
+              >
+                <Image
+                  fill
+                  src="/favicon.ico"
+                  alt="Club's logo"
+                  className="favicon"
+                  sizes="maxWidth: 100%; width: auto; height: auto"
                 />
-              </MenuItem>
-            </Menu>
-          </Toolbar>
-        </Paper>
-      </ThemeProvider>
-    </>
+              </div>
+              {window.innerWidth > smallSizeLimit && nav()}
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+                sx={{ alignItems: "flex-end" }}
+              >
+                <MenuIcon sx={{ marginRight: "10px" }} />
+                Menu
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                {window.innerWidth < smallSizeLimit && nav()}
+                <MenuItem>
+                  <LanguageSelector />
+                </MenuItem>
+                <MenuItem sx={{ flexDirection: "row-reverse" }}>
+                  <Switch
+                    onClick={() => {
+                      props.setThemeSelected((theme) =>
+                        theme === "light" ? "dark" : "light"
+                      );
+                    }}
+                    checkedIcon={<Brightness3Icon sx={{ marginTop: "-5%" }} />}
+                    icon={
+                      <BrightnessHighIcon
+                        sx={{ color: "#ffc107", marginTop: "-5%" }}
+                      />
+                    }
+                    checked={props.themeSelected === "dark"}
+                    size="medium"
+                  />
+                </MenuItem>
+              </Menu>
+            </Toolbar>
+          </Paper>
+        </ThemeProvider>
+      </>
+    )
   );
 };
 

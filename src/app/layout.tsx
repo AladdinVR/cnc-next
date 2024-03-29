@@ -21,12 +21,11 @@ export function generateStaticParams() {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang={params.locale}>
+    <html>
       <body className="Core">
         <AppRouterCacheProvider>
           <GlobalCanvaServer>{children}</GlobalCanvaServer>
