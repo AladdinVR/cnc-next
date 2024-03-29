@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.locale}>
-      <body className={inter.className}>
+      <body className="Core">
         <AppRouterCacheProvider>
           <GlobalCanvaServer>{children}</GlobalCanvaServer>
         </AppRouterCacheProvider>

@@ -21,6 +21,7 @@ const innerThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: "0px",
+          marginTop: "20px",
         },
       },
     },

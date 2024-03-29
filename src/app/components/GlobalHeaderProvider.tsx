@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import { getTheme } from "@/palette";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme, useMediaQuery } from "@mui/material";
 import Footer from "./Footer";
 import { HeaderProps } from "../props";
 
@@ -14,7 +14,12 @@ const GlobalHeaderProvider = ({
   children: React.ReactNode;
   sections: HeaderProps["sections"];
 }) => {
-  const [themePrefered, setThemePrefered] = useState<"light" | "dark">("dark");
+  const darkThemePrefered = useMediaQuery(
+    "@media (prefers-color-scheme: dark)"
+  );
+  const [themePrefered, setThemePrefered] = useState<"light" | "dark">(
+    darkThemePrefered ? "dark" : "light"
+  );
   const theme = createTheme(getTheme(themePrefered));
 
   return (

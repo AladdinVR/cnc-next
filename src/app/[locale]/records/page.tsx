@@ -10,9 +10,8 @@ import pick from "lodash/pick";
 import Records from "@/app/components/Records";
 
 export default function Index() {
-  const t = useTranslations("Index");
+  const t = useTranslations("Records");
   const messages = useMessages();
-
   return (
     <Container maxWidth="lg">
       <Grid sx={{ mt: 3 }}>
