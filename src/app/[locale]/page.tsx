@@ -1,9 +1,11 @@
-import { useLocale, useTranslations } from "next-intl";
-import Markdown from "../components/Markdown";
-import { Container, Grid } from "@mui/material";
 import { redirect } from "@/navigation";
+import { unstable_setRequestLocale } from "next-intl/server";
 
-export default function Index() {
-  const t = useTranslations("Index");
+export default function Index({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(locale);
   redirect("/home");
 }

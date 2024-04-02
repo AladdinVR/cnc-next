@@ -1,12 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { locales } from "@/i18n";
-import GlobalHeaderProvider from "./components/GlobalHeaderProvider";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import type { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { Inter } from "next/font/google";
+import GlobalCanvaServer from "../components/GlobalCanvaServer";
 import "./layout.css";
-import Footer from "./components/Footer";
-import { useTranslations } from "next-intl";
-import GlobalCanvaServer from "./components/GlobalCanvaServer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +19,12 @@ export function generateStaticParams() {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
   return (
     <html>
       <body className="Core">

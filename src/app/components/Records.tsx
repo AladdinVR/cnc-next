@@ -9,7 +9,7 @@ import {
   GridToolbarDensitySelector,
 } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
-import { RecordsProps, RecordsRows } from "../props";
+import { RecordsRows } from "../props";
 import {
   ClickAwayListener,
   Container,

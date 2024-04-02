@@ -1,11 +1,11 @@
-import { useLocale, useTranslations } from "next-intl";
-import Markdown from "../../components/Markdown";
 import { Container, Grid } from "@mui/material";
+import Markdown from "../../components/Markdown";
 
-export default function Index() {
-  const t = useTranslations("Index");
-  const locale = useLocale();
-
+export default function Index({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   return (
     <Container maxWidth="lg">
       <Grid sx={{ mt: 3 }}>
